@@ -1,0 +1,33 @@
+.topnav {
+    
+  width: 100%;
+  background: #26263c;
+  padding: 15px;
+  color: #adadad;
+  text-align: center;
+  /* margin-bottom: 50px; */
+   /* left:0%; */
+ 
+   border-bottom:groove #6d507e;
+}
+#body {
+  background-color: #1a1a1aed;
+  padding-bottom: 6%
+}
+
+.main {
+  padding-top: 12%;
+}
+
+.main-form {
+  background-color: #6c6c6c;
+  padding:5% 10% 10% 10%;
+  border-radius: 5px;
+}
+
+.form-heading {
+  color:#d1d1d1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

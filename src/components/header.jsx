@@ -5,7 +5,7 @@ export default class Header extends Component {
     return (
       <div className="topnav">
         <h1 className="form-heading">
-          Hash Ketchum:: <small><em>#Live#hashing#example</em></small>
+          Hash Ketchum:: <small><em>Gotta Hash 'em All </em></small>
         </h1>
       </div>
     );

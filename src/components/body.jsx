@@ -69,7 +69,12 @@ export default class Body extends Component {
           <div className="container">
             <div className="main-form">
               <div className="row">
-                <h2 className="form-heading">#Hash#Browns#for#Brekkie?</h2>
+                <h2 className="form-heading">
+                  <strong className="big">#!/</strong>
+                  <i className="glyphicon glyphicon-trash" />
+                  <strong className="big">/</strong>
+                  <i className="glyphicon glyphicon-console" />
+                </h2>
               </div>
               <hr />
               <div className="row">

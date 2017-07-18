@@ -31,3 +31,20 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.btn-dark {
+  background: #2a2a2a !important;
+  min-width: 17vh;
+  border: 1px solid #f7f7ff !important;
+  color: white !important;
+  min-width: 17vh;
+}
+
+.active {
+ background: #fff !important;
+min-width: 17vh;
+border: 1px solid #333335 !important;
+color: #595959 !important;
+min-width: 17vh;
+
+}

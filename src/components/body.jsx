@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {SHA256, SHA512, MD5} from 'crypto-js';
 
+const ACTIVE_BTN_CLASS = 'btn btn-default btn-dark active';
+const BTN_CLASS = 'btn btn-default btn-dark';
+
 export default class Body extends Component {
   constructor () {
     super ();
@@ -12,6 +15,11 @@ export default class Body extends Component {
         SHA512: SHA512,
       },
       hashFunction: SHA256,
+      buttonClasses: {
+        MD5: BTN_CLASS,
+        SHA256: BTN_CLASS,
+        SHA512: BTN_CLASS,
+      },
     };
   }
   hash (e) {
@@ -32,17 +40,21 @@ export default class Body extends Component {
   }
   toggle (e) {
     const key = e.target.innerText;
+    let classes = this.state.buttonClasses;
+
+    Object.keys (classes).forEach (k => {
+      if (k !== key) classes[k] = BTN_CLASS;
+      else if (classes[k].indexOf ('active') === -1)
+        classes[k] = ACTIVE_BTN_CLASS;
+    });
+
     const newState = {
       hashFunction: this.state.hashes[key],
-    };
-    this.setState (Object.assign (this.state, newState));
-    const value = {
-      target: {
-        value: this.state.input,
-      },
+      buttonClasses: classes,
     };
 
-    this.hash (value);
+    this.setState (Object.assign (this.state, newState));
+    this.hash ({target: {value: this.state.input}});
   }
 
   render () {
@@ -56,32 +68,31 @@ export default class Body extends Component {
               </div>
               <hr />
               <div className="row">
-                <div className="col-md-12 text-center">
-                  <div
-                    className="btn-group btn-group-lg"
-                    role="group"
-                    aria-label="..."
-                  >
+                <div className="col-md-12 col-sm-12 text-center">
+
+                  <div className="col-md-4">
                     <button
-                      data-toggle="button"
                       type="button"
-                      className="btn btn-default"
+                      className={this.state.buttonClasses['SHA256']}
                       onClick={this.toggle.bind (this)}
                     >
                       SHA256
                     </button>
+                  </div>
+                  <div className="col-md-4">
+
                     <button
-                      data-toggle="button"
                       type="button"
-                      className="btn btn-default "
+                      className={this.state.buttonClasses['SHA512']}
                       onClick={this.toggle.bind (this)}
                     >
                       SHA512
                     </button>
+                  </div>
+                  <div className="col-md-4">
                     <button
-                      data-toggle="button"
                       type="button"
-                      className="btn btn-default"
+                      className={this.state.buttonClasses['MD5']}
                       onClick={this.toggle.bind (this)}
                     >
                       MD5

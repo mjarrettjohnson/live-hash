@@ -25,7 +25,12 @@ export default class Body extends Component {
   hash (e) {
     const value = e.target.value;
     let newState;
-    if (value.length > 0) {
+    if (value === 'Hash') {
+      newState = {
+        hashed: "Awwwww...... This ain't right.....",
+        input: value,
+      };
+    } else if (value.length > 0) {
       newState = {
         hashed: this.state.hashFunction (value),
         input: value,
@@ -64,7 +69,7 @@ export default class Body extends Component {
           <div className="container">
             <div className="main-form">
               <div className="row">
-                <h2 className="form-heading">Can you Guess them all?</h2>
+                <h2 className="form-heading">#Hash#Browns#for#Brekkie?</h2>
               </div>
               <hr />
               <div className="row">
@@ -106,7 +111,7 @@ export default class Body extends Component {
                   <form>
                     <div className="form-group row">
                       <label className="col-md-2 col-form-label">
-                        Enter Text
+                        RAWWW
                       </label>
                       <div className="col-md-10">
                         <input
@@ -119,7 +124,7 @@ export default class Body extends Component {
                     </div>
                     <div className="form-group row">
                       <label className="col-md-2 col-form-label">
-                        Output
+                        #HASH#
                       </label>
                       <div className="col-md-10">
                         <textarea

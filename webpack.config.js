@@ -1,6 +1,7 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/index.js',
+		'webpack-dev-server/client?http://0.0.0.0:8080'
   ],
   output: {
     path: __dirname,
@@ -21,6 +22,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+		disableHostCheck: true
   }
 };

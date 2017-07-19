@@ -24,24 +24,20 @@ export default class Body extends Component {
   }
   hash (e) {
     const value = e.target.value;
-    let newState;
+    let hashed;
+    let input;
+
     if (value === 'Hash') {
-      newState = {
-        hashed: "Awwwww...... This ain't right.....",
-        input: value,
-      };
+      hashed = "Awwwww...... This ain't right.....";
+      input = value;
     } else if (value.length > 0) {
-      newState = {
-        hashed: this.state.hashFunction (value),
-        input: value,
-      };
+      hashed = this.state.hashFunction (value);
+      input = value;
     } else {
-      newState = {
-        input: value,
-        hashed: '',
-      };
+      input = value;
+      hashed = '';
     }
-    this.setState (newState);
+    this.setState ({hashed, input});
   }
   toggle (e) {
     const key = e.target.innerText;
@@ -64,84 +60,68 @@ export default class Body extends Component {
 
   render () {
     return (
-      <div className="row">
-        <div className="col-md-12 col-sm-12">
-          <div className="container">
-            <div className="main-form">
-              <div className="row">
-                <h2 className="form-heading">
-                  <strong className="big">#!/</strong>
-                  <i className="glyphicon glyphicon-trash" />
-                  <strong className="big">/</strong>
-                  <i className="glyphicon glyphicon-console" />
-                </h2>
-              </div>
-              <hr />
-              <div className="row">
-                <div className="col-md-12 col-sm-12 text-center">
-
-                  <div className="col-md-4">
-                    <button
-                      type="button"
-                      className={this.state.buttonClasses['SHA256']}
-                      onClick={this.toggle.bind (this)}
-                    >
-                      SHA256
-                    </button>
-                  </div>
-                  <div className="col-md-4">
-
-                    <button
-                      type="button"
-                      className={this.state.buttonClasses['SHA512']}
-                      onClick={this.toggle.bind (this)}
-                    >
-                      SHA512
-                    </button>
-                  </div>
-                  <div className="col-md-4">
-                    <button
-                      type="button"
-                      className={this.state.buttonClasses['MD5']}
-                      onClick={this.toggle.bind (this)}
-                    >
-                      MD5
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="row">
-                <div className="col-md-8 col-md-offset-2">
-                  <form>
-                    <div className="form-group row">
-                      <label className="col-md-2 col-form-label">
-                        RAWWW
-                      </label>
-                      <div className="col-md-10">
-                        <input
-                          className="form-control"
-                          placeholder="Enter String..."
-                          value={this.state.input}
-                          onChange={this.hash.bind (this)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group row">
-                      <label className="col-md-2 col-form-label">
-                        #HASH#
-                      </label>
-                      <div className="col-md-10">
-                        <textarea
-                          className="form-control"
-                          value={this.state.hashed}
-                        />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+      <div>
+        <div className="row">
+          <div className="col-md-12 col-sm-12 text-center">
+            <div className="col-md-4">
+              <button
+                type="button"
+                className={this.state.buttonClasses['SHA256']}
+                onClick={this.toggle.bind (this)}
+              >
+                SHA256
+              </button>
             </div>
+            <div className="col-md-4">
+
+              <button
+                type="button"
+                className={this.state.buttonClasses['SHA512']}
+                onClick={this.toggle.bind (this)}
+              >
+                SHA512
+              </button>
+            </div>
+            <div className="col-md-4">
+              <button
+                type="button"
+                className={this.state.buttonClasses['MD5']}
+                onClick={this.toggle.bind (this)}
+              >
+                MD5
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="row">
+          <div className="col-md-8 col-md-offset-2">
+            <form>
+              <div className="form-group row">
+                <label className="col-md-2 col-form-label">
+                  RAWWW
+                </label>
+                <div className="col-md-10">
+                  <input
+                    className="form-control"
+                    placeholder="Enter String..."
+                    value={this.state.input}
+                    onChange={this.hash.bind (this)}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-md-2 col-form-label">
+                  #HASH#
+                </label>
+                <div className="col-md-10">
+                  <textarea
+                    className="form-control"
+                    value={this.state.hashed}
+                  />
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

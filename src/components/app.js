@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from './header';
-import Body from './body';
+import Container from './container';
 export default class App extends Component {
   render () {
     return (
@@ -8,7 +8,7 @@ export default class App extends Component {
         <Header />
         <div className="container">
           <div className="container-fluid main">
-            <Body />
+            <Container />
           </div>
         </div>
       </div>
